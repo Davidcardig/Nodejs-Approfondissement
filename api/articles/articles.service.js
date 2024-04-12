@@ -1,4 +1,5 @@
-const Articles = require('articles.schema')
+const Articles = require('./articles.schema')
+const path = require("path");
 
 
 class ArticlesService {
@@ -14,6 +15,12 @@ class ArticlesService {
         return Articles.deleteOne({ _id: id });
     }
 
+    async DisplayArticlesByUserId(userId) {
+        return Articles.find({ userId }).populate({
+        path: "userId",
+            select: "-password"
+        });
+    }
 }
 
 module.exports = new ArticlesService();

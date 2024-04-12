@@ -34,6 +34,7 @@ app.use("/api/users", authMiddleware, userRouter);
 app.post("/login", usersController.login);
 
 app.use("/api/articles", authMiddleware, articleRouter)
+app.get("/:userId/articles", usersController.DisplayArticlesByUserId);
 
 app.use("/", express.static("public"));
 

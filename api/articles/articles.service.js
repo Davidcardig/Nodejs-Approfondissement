@@ -1,5 +1,4 @@
-const Articles = require('./articles.schema')
-const path = require("path");
+const Article = require('./articles.schema')
 
 
 class ArticlesService {
@@ -9,14 +8,14 @@ class ArticlesService {
         return Articles.save();
     }
     update(id, data) {
-        return Articles.findByIdAndUpdate(id, data, { new: true });
+        return Article.findByIdAndUpdate(id, data, { new: true });
     }
     delete(id) {
-        return Articles.deleteOne({ _id: id });
+        return Article.deleteOne({ _id: id });
     }
 
     async DisplayArticlesByUserId(userId) {
-        return Articles.find({ userId }).populate({
+        return Article.find({ userId }).populate({
         path: "userId",
             select: "-password"
         });

@@ -1,12 +1,5 @@
-const request = require("supertest");
-const { app } = require("../server");
-const jwt = require("jsonwebtoken");
-const config = require("../config");
-const mongoose = require("mongoose");
 const mockingoose = require("mockingoose");
 const articlesService = require("../api/articles/articles.service.js");
-const req = require("express/lib/request");
-
 const Article = require("../api/articles/articles.schema");
 
 describe("tester API articles", () => {

@@ -6,6 +6,10 @@ module.exports = {
       env_production: {
         NODE_ENV: "production",
       },
+      max_memory_restart: "200M",
+      error_file: "./logs/error.log",
     },
   ],
 };
+
+//"pm2 start -i 3" permet de lancer l'app avec 3 instances

@@ -5,10 +5,12 @@ module.exports = {
       script: "./www/app.js",
       env_production: {
         NODE_ENV: "production",
+        PORT: 3000
       },
       max_memory_restart: "200M",
       error_file: "./logs/error.log",
       instances: 3,
+      exec_mode: "cluster",
     },
   ],
 };

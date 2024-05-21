@@ -3,23 +3,25 @@ const Article = require('./articles.schema')
 
 class ArticlesService {
 
-    create(data) {
-        const Articles = new Article(data);
-        return Articles.save();
+
+    async create(data, userId) {
+        const article = new Article(data);
+        article.user = userId;
+        return await article.save();
     }
-    update(id, data) {
-        return Article.findByIdAndUpdate(id, data, { new: true });
+
+    async update(id, data) {
+        return await Article.findByIdAndUpdate(id, data, { new: true });
     }
-    delete(id) {
-        return Article.deleteOne({ _id: id });
+
+    async delete(id) {
+        return await Article.deleteOne({ _id: id });
     }
 
     async DisplayArticlesByUserId(userId) {
-        return Article.find({ userId }).populate({
-        path: "userId",
-            select: "-password"
-        });
+        return await Article.find({ user: userId }).populate("user", "-password");
     }
+
 }
 
 module.exports = new ArticlesService();

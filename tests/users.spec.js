@@ -10,14 +10,13 @@ const usersService = require("../api/users/users.service");
 describe("tester API users", () => {
   let token;
   const USER_ID = "fake";
-  const MOCK_DATA = [
-    {
-      _id: USER_ID,
-      name: "ana",
-      email: "nfegeg@gmail.com",
-      password: "azertyuiop",
-    },
-  ];
+  const MOCK_DATA_ONE = {
+    _id: USER_ID,
+    name: "ana",
+    email: "nfegeg@gmail.com",
+    password: "azertyuiop",
+  }
+  const MOCK_DATA = [MOCK_DATA_ONE];
   const MOCK_DATA_CREATED = {
     name: "test",
     email: "test@test.net",
@@ -28,30 +27,31 @@ describe("tester API users", () => {
     token = jwt.sign({ userId: USER_ID }, config.secretJwtToken);
     // mongoose.Query.prototype.find = jest.fn().mockResolvedValue(MOCK_DATA);
     mockingoose(User).toReturn(MOCK_DATA, "find");
+    mockingoose(User).toReturn(MOCK_DATA_ONE, "findOne");
     mockingoose(User).toReturn(MOCK_DATA_CREATED, "save");
   });
 
   test("[Users] Get All", async () => {
     const res = await request(app)
-      .get("/api/users")
-      .set("x-access-token", token);
+        .get("/api/users")
+        .set("x-access-token", token);
     expect(res.status).toBe(200);
     expect(res.body.length).toBeGreaterThan(0);
   });
 
   test("[Users] Create User", async () => {
     const res = await request(app)
-      .post("/api/users")
-      .send(MOCK_DATA_CREATED)
-      .set("x-access-token", token);
+        .post("/api/users")
+        .send(MOCK_DATA_CREATED)
+        .set("x-access-token", token);
     expect(res.status).toBe(201);
     expect(res.body.name).toBe(MOCK_DATA_CREATED.name);
   });
 
   test("Est-ce userService.getAll", async () => {
     const spy = jest
-      .spyOn(usersService, "getAll")
-      .mockImplementation(() => "test");
+        .spyOn(usersService, "getAll")
+        .mockImplementation(() => "test");
     await request(app).get("/api/users").set("x-access-token", token);
     expect(spy).toHaveBeenCalled();
     expect(spy).toHaveBeenCalledTimes(1);

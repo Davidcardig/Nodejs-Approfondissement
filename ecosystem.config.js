@@ -5,6 +5,10 @@ module.exports = {
       script: "./www/app.js",
       env_production: {
         NODE_ENV: "production",
+        PORT: 3001
+      },
+      env_development: {
+        NODE_ENV: "development",
         PORT: 3000
       },
       max_memory_restart: "200M",
@@ -14,5 +18,3 @@ module.exports = {
     },
   ],
 };
-
-//"pm2 start -i 3" permet de lancer l'app avec 3 instances

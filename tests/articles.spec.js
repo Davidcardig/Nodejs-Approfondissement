@@ -8,67 +8,73 @@ const User = require("../api/users/users.model");
 
 describe("tester API articles", () => {
     let token;
-    const USER_ID = "fake";
-    const USER = {
-        _id: USER_ID,
-        name: "Admin",
-        email: "admin@admin.com",
-        password: "admin",
+    const ID = "fake";
+    const MOCK_USER_DATA_ONE = {
+        _id: ID,
+        name: "ana",
+        email: "nfegeg@gmail.com",
+        password: "azertyuiop",
         role: "admin"
-    };
-    const ARTICLE_ID = "fake";
+    }
 
+const MOCK_ARTICLE_DATA = [
+    {
+        _id: "fake",
+        title: "test",
+        content: "test",
+        user: ID
+    }
+];
 
-    const mockArticleCreated  = {
-        title: "Article du Jour",
-        content: "Bonjour !",
-    };
+const MOCK_ARTICLE_DATA_CREATED = {
+    title: "test",
+    content: "test",
+    user: ID
+};
+const MOCK_ARTICLE_DATA_UPDATED = {
+    title: "test",
+    content: "test",
+    user : ID
 
-    const mockArticleUpdate  = {
-        _id: ARTICLE_ID,
-        title: "Article du Jour",
-        content: "Hello le monde !",
-    };
+};
 
     beforeEach(() => {
-        token = jwt.sign({ userId: USER_ID }, config.secretJwtToken);
-        mockingoose(Article).toReturn(mockArticleUpdate, 'findOneAndUpdate');
-        mockingoose(Article).toReturn(mockArticleCreated, "save");
-        mockingoose(User).toReturn(USER, "findOne");
+        token = jwt.sign({ userId: ID }, config.secretJwtToken);
+        mockingoose(User).toReturn(MOCK_USER_DATA_ONE, "findOne");
+        mockingoose(Article).toReturn(MOCK_ARTICLE_DATA, "find");
+        mockingoose(Article).toReturn(MOCK_ARTICLE_DATA_CREATED, "save");
+        mockingoose(Article).toReturn(MOCK_ARTICLE_DATA_UPDATED, "findOneAndUpdate");
     });
 
-
-
-    it("création d'article", async () => {
+    test("Crée un Article", async () => {
         const res = await request(app)
             .post("/api/articles")
-            .send(mockArticleCreated)
+            .send(MOCK_ARTICLE_DATA_CREATED)
             .set("x-access-token", token);
-
         expect(res.status).toBe(201);
-        expect(res.body.title).toBe(mockArticleCreated.title);
-        expect(res.body.content).toBe(mockArticleCreated.content);
-    })
+        expect(res.body.title).toBe(MOCK_ARTICLE_DATA_CREATED.title);
+        expect(res.body.content).toBe(MOCK_ARTICLE_DATA_CREATED.content);
+    });
 
-    it("Mettre a jour un article", async () => {
+    test("Ajouter un Article", async () => {
         const res = await request(app)
-            .put(`/api/articles/${ARTICLE_ID}`)
-            .send(mockArticleUpdate)
-            .set("x-access-token", token);
-
-        expect(res.status).toBe(200);
-        expect(res.body.title).toBe(mockArticleUpdate.title);
-        expect(res.body.content).toBe(mockArticleUpdate.content);
-    })
-
-    it("Supression d'article", async () => {
-        const res = await request(app)
-            .delete(`/api/articles/${ARTICLE_ID}`)
+            .put("/api/articles/fake")
+            .send(MOCK_ARTICLE_DATA_UPDATED)
             .set("x-access-token", token);
         expect(res.status).toBe(200);
-    })
+        expect(res.body.title).toBe(MOCK_ARTICLE_DATA_UPDATED.title);
+        expect(res.body.content).toBe(MOCK_ARTICLE_DATA_UPDATED.content);
+    });
+
+    test("Supprimer un Article", async () => {
+        const res = await request(app)
+            .delete("/api/articles/fake")
+            .set("x-access-token", token);
+        expect(res.status).toBe(204);
+        expect(res.body).toStrictEqual({});
+    });
 
     afterEach(() => {
         jest.restoreAllMocks();
     });
-})
+});

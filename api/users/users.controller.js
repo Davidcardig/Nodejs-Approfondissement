@@ -75,15 +75,15 @@ class UsersController {
     }
   }
 
-    async DisplayArticlesByUserId(req, res, next) {
-        try {
-        const userId = req.params._id;
-        const articles = await articlesService.DisplayArticlesByUserId(userId);
-        res.json(articles);
-        } catch (err) {
-        next(err);
-        }
+  async DisplayArticlesByUserId(req, res, next) {
+    try {
+      const userId = req.params.userId;
+      const articles = await articlesService.DisplayArticlesByUserId(userId);
+      res.json(articles);
+    } catch (err) {
+      next(err);
     }
+  }
 }
 
 module.exports = new UsersController();

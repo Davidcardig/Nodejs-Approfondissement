@@ -10,13 +10,14 @@ const usersService = require("../api/users/users.service");
 describe("tester API users", () => {
   let token;
   const USER_ID = "fake";
-  const MOCK_DATA_ONE = {
-    _id: USER_ID,
-    name: "ana",
-    email: "nfegeg@gmail.com",
-    password: "azertyuiop",
-  }
-  const MOCK_DATA = [MOCK_DATA_ONE];
+  const MOCK_DATA = [
+    {
+      _id: USER_ID,
+      name: "ana",
+      email: "nfegeg@gmail.com",
+      password: "azertyuiop",
+    },
+  ];
   const MOCK_DATA_CREATED = {
     name: "test",
     email: "test@test.net",
@@ -27,7 +28,6 @@ describe("tester API users", () => {
     token = jwt.sign({ userId: USER_ID }, config.secretJwtToken);
     // mongoose.Query.prototype.find = jest.fn().mockResolvedValue(MOCK_DATA);
     mockingoose(User).toReturn(MOCK_DATA, "find");
-    mockingoose(User).toReturn(MOCK_DATA_ONE, "findOne");
     mockingoose(User).toReturn(MOCK_DATA_CREATED, "save");
   });
 

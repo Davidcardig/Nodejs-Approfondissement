@@ -56,20 +56,24 @@ x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjY2Y2Q
   "state": "draft"
 }
 
+### GET request to get articles by user ID
+GET http://localhost:3000/api/users/66cdecaa2eb5759a02fd153a/articles
+Content-Type: application/json
+x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjY2Y2Q5MmNkZWRjMDQwNTk0NjU5YTRjMiIsIm5hbWUiOiJhbmEiLCJlbWFpbCI6InRlc3RAdGVzLm5ldCIsInJvbGUiOiJhZG1pbiIsImRhdGUiOiIyMDI0LTA4LTI3VDA4OjQ4OjEzLjMzNVoiLCJfX3YiOjB9LCJpYXQiOjE3MjQ3NDg1NDQsImV4cCI6MTcyNTAwNzc0NH0.CuZs2zAIqjRAgSfmvrEXvbpnRjAgoxkYl7aeA5jMC2Y
+
 ### PUT request to update an article
-PUT http://localhost:3000/api/articles/66cd90ec27d82048ad4259c3
+PUT http://localhost:3000/api/articles/66ce0979c689cbc7ad274567
 Content-Type: application/json
 x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjY2Y2Q5MmNkZWRjMDQwNTk0NjU5YTRjMiIsIm5hbWUiOiJhbmEiLCJlbWFpbCI6InRlc3RAdGVzLm5ldCIsInJvbGUiOiJhZG1pbiIsImRhdGUiOiIyMDI0LTA4LTI3VDA4OjQ4OjEzLjMzNVoiLCJfX3YiOjB9LCJpYXQiOjE3MjQ3NDg1NDQsImV4cCI6MTcyNTAwNzc0NH0.CuZs2zAIqjRAgSfmvrEXvbpnRjAgoxkYl7aeA5jMC2Y
 
 {
   "title": "New Article",
-  "content": "Content modified of the new article",
-  "state": "published",
-  "role": "admin"
+  "content": "Content modifie of the new article",
+  "state": "published"
 }
 
 ### DELETE request to delete an article
-DELETE http://localhost:3000/api/articles/66cd90ec27d82048ad4259c3
+DELETE http://localhost:3000/api/articles/66ce0979c689cbc7ad274567
 x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjY2Y2Q5MmNkZWRjMDQwNTk0NjU5YTRjMiIsIm5hbWUiOiJhbmEiLCJlbWFpbCI6InRlc3RAdGVzLm5ldCIsInJvbGUiOiJhZG1pbiIsImRhdGUiOiIyMDI0LTA4LTI3VDA4OjQ4OjEzLjMzNVoiLCJfX3YiOjB9LCJpYXQiOjE3MjQ3NDg1NDQsImV4cCI6MTcyNTAwNzc0NH0.CuZs2zAIqjRAgSfmvrEXvbpnRjAgoxkYl7aeA5jMC2Y
 Content-Type: application/json
 

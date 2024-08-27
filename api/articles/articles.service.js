@@ -19,7 +19,7 @@ class ArticlesService {
     }
 
     async DisplayArticlesByUserId(userId) {
-        return await Article.find({ user: userId }).populate("user", "-password");
+        return await Article.find().populate({path: 'user', match: { _id: userId }, select: "-password"});
     }
 
 }

@@ -28,18 +28,21 @@ describe("API articles tests", () => {
         _id: ARTICLE_ID,
         title: "test",
         content: "test",
+        state: "draft"
     }];
 
     const MOCK_ARTICLE_CREATED = {
         title: "test",
         content: "test",
-        role: "admin"
+        role: "admin",
+        state: "draft"
     };
 
     const MOCK_ARTICLE_UPDATED = {
         title: "test",
         content: "test",
-        user: ARTICLE_ID
+        user: ARTICLE_ID,
+        state: "published"
     };
 
     beforeEach(() => {

@@ -4,7 +4,7 @@ const userModel = require("../users/users.model");
 class ArticlesController {
     async create(req, res, next) {
         try {
-            const userId = req.user._id;
+            const userId = req.user.id;
             const article = await articlesService.create(req.body, userId);
             req.io.emit("article:create", article);
             res.status(201).json(article);

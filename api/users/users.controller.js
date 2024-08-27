@@ -77,7 +77,7 @@ class UsersController {
 
     async DisplayArticlesByUserId(req, res, next) {
         try {
-        const userId = req.params.id;
+        const userId = req.params._id;
         const articles = await articlesService.DisplayArticlesByUserId(userId);
         res.json(articles);
         } catch (err) {

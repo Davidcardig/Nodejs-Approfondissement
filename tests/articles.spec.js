@@ -34,7 +34,6 @@ describe("API articles tests", () => {
     const MOCK_ARTICLE_CREATED = {
         title: "test",
         content: "test",
-        role: "admin",
         state: "draft"
     };
 

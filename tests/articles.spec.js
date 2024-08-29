@@ -19,8 +19,8 @@ describe("API articles tests", () => {
     const MOCK_USER_DATA = {
         _id: ARTICLE_ID,
         name: "ana",
-        email: "nfegeg@gmail.com",
-        password: "azertyuiop",
+        email: "test@tes.com",
+        password: "azertyyyy",
         role: "admin"
     };
 

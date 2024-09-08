@@ -1,5 +1,5 @@
 const articlesService = require("./articles.service.js");
-const userModel = require("../users/users.model");
+const UnauthorizedError = require("../../errors/unauthorized");
 
 class ArticlesController {
     async create(req, res, next) {

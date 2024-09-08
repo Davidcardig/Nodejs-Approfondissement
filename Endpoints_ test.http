@@ -3,15 +3,15 @@ POST http://localhost:3000/api/users
 Content-Type: application/json
 
 {
-  "name": "ana",
-  "email": "test@tes.net",
+  "name": "david",
+  "email": "test@tes.com",
   "password": "azertyyy",
-    "role": "admin"
+  "role": "admin"
 }
 
 
 ### PUT request to update a user : OK
-PUT http://localhost:3000/api/users/66ce37aa3e3050046eb09f64
+PUT http://localhost:3000/api/users/66dd91b4f4e2d505867da18a
 Content-Type: application/json
 
 {
@@ -29,26 +29,25 @@ POST http://localhost:3000/login
 Content-Type: application/json
 
 {
-  "email": "test@tes.net",
+  "email": "test@tes.com",
   "password": "azertyyy"
 }
 
 ### POST request login user : OK
 GET http://localhost:3000/api/users
 Content-Type: application/json
-x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjY2Y2UzOTg0MmY5MWYzZDMyZTYyMDBjMiIsIm5hbWUiOiJhbmEiLCJlbWFpbCI6InRlc3RAdGVzLm5ldCIsInJvbGUiOiJhZG1pbiIsImRhdGUiOiIyMDI0LTA4LTI3VDIwOjM5OjMyLjMzMloiLCJfX3YiOjB9LCJpYXQiOjE3MjQ3OTExODcsImV4cCI6MTcyNTA1MDM4N30.hk7Mv2uFtAmahzh18mherlcHwgj1zW_UVpNN04Sbx2w
+x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NmRkOWEzODI2Nzc2ODUzOWZkOWRiMTIiLCJpYXQiOjE3MjU3OTg5NzcsImV4cCI6MTcyNjA1ODE3N30.PEszLoocMYCHFYBqye7QstBHB1y6HLqdMSa6muaELqY
 
 
 ### DELETE request to delete a user : OK
-DELETE http://localhost:3000/api/users/66ce37aa3e3050046eb09f64
+DELETE http://localhost:3000/api/users/66dd98c6de76f58ae739e52c
 Content-Type: application/json
-
 
 
 ### POST request to create an article : OK
 POST http://localhost:3000/api/articles
 Content-Type: application/json
-x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjY2Y2UzOTg0MmY5MWYzZDMyZTYyMDBjMiIsIm5hbWUiOiJhbmEiLCJlbWFpbCI6InRlc3RAdGVzLm5ldCIsInJvbGUiOiJhZG1pbiIsImRhdGUiOiIyMDI0LTA4LTI3VDIwOjM5OjMyLjMzMloiLCJfX3YiOjB9LCJpYXQiOjE3MjQ3OTExODcsImV4cCI6MTcyNTA1MDM4N30.hk7Mv2uFtAmahzh18mherlcHwgj1zW_UVpNN04Sbx2w
+x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NmRkOWEzODI2Nzc2ODUzOWZkOWRiMTIiLCJpYXQiOjE3MjU3OTg5NzcsImV4cCI6MTcyNjA1ODE3N30.PEszLoocMYCHFYBqye7QstBHB1y6HLqdMSa6muaELqY
 
 {
   "title": "New Article",
@@ -57,14 +56,14 @@ x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjY2Y2U
 }
 
 ### GET request to get articles by user ID : OK
-GET http://localhost:3000/api/users/66cdecaa2eb5759a02fd153a/articles
+GET http://localhost:3000/api/users/66dd99630b48927c5ef95898/articles
 Content-Type: application/json
-x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjY2Y2UzOTg0MmY5MWYzZDMyZTYyMDBjMiIsIm5hbWUiOiJhbmEiLCJlbWFpbCI6InRlc3RAdGVzLm5ldCIsInJvbGUiOiJhZG1pbiIsImRhdGUiOiIyMDI0LTA4LTI3VDIwOjM5OjMyLjMzMloiLCJfX3YiOjB9LCJpYXQiOjE3MjQ3OTExODcsImV4cCI6MTcyNTA1MDM4N30.hk7Mv2uFtAmahzh18mherlcHwgj1zW_UVpNN04Sbx2w
+x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NmRkOWEzODI2Nzc2ODUzOWZkOWRiMTIiLCJpYXQiOjE3MjU3OTg5NzcsImV4cCI6MTcyNjA1ODE3N30.PEszLoocMYCHFYBqye7QstBHB1y6HLqdMSa6muaELqY
 
 ### PUT request to update an article : OK
-PUT http://localhost:3000/api/articles/66ce3b93a57669648ee55c4d
+PUT http://localhost:3000/api/articles/66dd9a55267768539fd9db16
 Content-Type: application/json
-x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjY2Y2Q5MmNkZWRjMDQwNTk0NjU5YTRjMiIsIm5hbWUiOiJhbmEiLCJlbWFpbCI6InRlc3RAdGVzLm5ldCIsInJvbGUiOiJhZG1pbiIsImRhdGUiOiIyMDI0LTA4LTI3VDA4OjQ4OjEzLjMzNVoiLCJfX3YiOjB9LCJpYXQiOjE3MjQ3NDg1NDQsImV4cCI6MTcyNTAwNzc0NH0.CuZs2zAIqjRAgSfmvrEXvbpnRjAgoxkYl7aeA5jMC2Y
+x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NmRkOTk2MzBiNDg5MjdjNWVmOTU4OTgiLCJpYXQiOjE3MjU3OTg3NjYsImV4cCI6MTcyNjA1Nzk2Nn0.vTyuO198msJ2Q2Zb1iWf-sgM3RCaTwy1cFRE4ibCJBk
 
 {
   "title": "New Article",
@@ -73,8 +72,9 @@ x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjY2Y2Q
 }
 
 ### DELETE request to delete an article : OK
-DELETE http://localhost:3000/api/articles/66ce3b93a57669648ee55c4d
-x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjY2Y2Q5MmNkZWRjMDQwNTk0NjU5YTRjMiIsIm5hbWUiOiJhbmEiLCJlbWFpbCI6InRlc3RAdGVzLm5ldCIsInJvbGUiOiJhZG1pbiIsImRhdGUiOiIyMDI0LTA4LTI3VDA4OjQ4OjEzLjMzNVoiLCJfX3YiOjB9LCJpYXQiOjE3MjQ3NDg1NDQsImV4cCI6MTcyNTAwNzc0NH0.CuZs2zAIqjRAgSfmvrEXvbpnRjAgoxkYl7aeA5jMC2Y
+DELETE http://localhost:3000/api/articles/66dd9a55267768539fd9db16
+x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NmRkOWEzODI2Nzc2ODUzOWZkOWRiMTIiLCJpYXQiOjE3MjU3OTg5NzcsImV4cCI6MTcyNjA1ODE3N30.PEszLoocMYCHFYBqye7QstBHB1y6HLqdMSa6muaELqY
 Content-Type: application/json
 
 
+//ana : eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NmRkOTk2MzBiNDg5MjdjNWVmOTU4OTgiLCJpYXQiOjE3MjU3OTg3NjYsImV4cCI6MTcyNjA1Nzk2Nn0.vTyuO198msJ2Q2Zb1iWf-sgM3RCaTwy1cFRE4ibCJBk
